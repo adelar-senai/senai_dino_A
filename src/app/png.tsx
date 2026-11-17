@@ -1,60 +1,40 @@
-import * as Device from 'expo-device';
-import { Image, Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
+//import { Cartman } from '@/components/personagem';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { useState } from 'react';
+import { Image, Pressable, StyleSheet } from 'react-native';
 
 
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
 
 export default function HomeScreen() {
-  return (
-    
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-            <Image source={require('C:\\Users\\enzo_f_ribeiro.EDU_FIESC\\senai_dino_A\\assets\\images\\jogo_png\\Cartman.png')}
-          style = "imgCartman" style={styles.imgCartman}/>
-          <ThemedText type="title" style={styles.title}>
-        É A PORRA DO DINO   CARALHO
-          </ThemedText>
-        </ThemedView>
+const [top,setTop]=useState(100)
 
-      </SafeAreaView>
-    </ThemedView>
+  return (
+
+ <Pressable onPress={()=>{setTop((t)=> t+200)}}>
+<Image source={require ('@/assets/images/jogo_png/Cartman.png')} style = {[{width: 100, height: 100, top, left: 70, position: 'absolute'}]}
+  /></Pressable>
+
+        
+
+
+
+
+
     
   );
 }
 
+
+
+
+
+
 const styles = StyleSheet.create({
-imgCartman:{
- width: 100, height: 100
+
+Cartman:{
+ width: 100, height: 100, top: Spacing.four, left: 70
 
 },
-
   container: {
     flex: 1,
     justifyContent: 'center',
