@@ -1,10 +1,31 @@
-import { useRef } from 'react';
+import { useRef,useEffect } from 'react';
 import { Pressable, Animated, View } from 'react-native';
 
 export default function Jogo() {
   const pulo = useRef(new Animated.Value(0)).current;
   const pulando = useRef(false);
   const inimigo = useRef(new Animated.Value(0)).current;
+  
+  function andar(){
+    useEffect(() => {
+
+    Animated.sequence([
+      Animated.timing(inimigo, {
+        toValue: -200,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+      Animated.timing(inimigo, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+      })
+
+    ])
+  })  
+  }
+
+  
 
   function pular() {
     if (pulando.current) return;
@@ -52,14 +73,15 @@ export default function Jogo() {
         }}
       />
       {/* Inimigo movimento */}
-      <Animated.View
+      <Animated.Image
       source={require('@/assets/images/jogo_png/alien.png')}
       style={{
          width: 100,
           height: 100,
           position: 'absolute',
           top: 350,
-          left: 70,
+          right: 70,
+          transform: [{ translateX: inimigo}]
 
       }}
       />
