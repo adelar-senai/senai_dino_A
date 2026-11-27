@@ -6,7 +6,7 @@ import { Image, StyleSheet } from 'react-native';
 }  
           
 
-const styles = StyleSheet.create({
+const Styles = StyleSheet.create({
 Cartman:{
  width: 100, height: 100, top: 300, left: 70
 

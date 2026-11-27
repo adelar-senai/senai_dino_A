@@ -19,15 +19,8 @@ export default function AppTabs() {
   return (
     <Tabs>
       <TabSlot style={{ height: '100%' }} />
-      <TabList asChild>
-        <CustomTabList>
-          <TabTrigger name="explore" href="/png" asChild>
-            <TabButton>Cartman</TabButton>
-          </TabTrigger>
-          <TabTrigger name="inimigo" href="/pulinhos" asChild>
-            <TabButton>Cartman</TabButton>
-          </TabTrigger>
-        </CustomTabList>
+      <TabList style={{ display: 'none' }}>
+        <TabTrigger name="explore" href="/jogo" />
       </TabList>
     </Tabs>
   );
