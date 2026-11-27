@@ -24,9 +24,6 @@ export default function AppTabs() {
           <TabTrigger name="explore" href="/png" asChild>
             <TabButton>Cartman</TabButton>
           </TabTrigger>
-          <TabTrigger name="inimigo" href="/pulinhos" asChild>
-            <TabButton>Cartman</TabButton>
-          </TabTrigger>
         </CustomTabList>
       </TabList>
     </Tabs>
